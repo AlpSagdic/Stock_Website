@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock InfoS</title>
+</head>
+<body>
+    {% import "bootstrap/wtf.html" as wtf %}
+
+    {% include "header.html" %}
+    <div class="bg-body-white" style="padding-bottom: 100px;">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto" style="margin-top: 20px;">
+                    {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "warning"}) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Stock Info-->
+    <div class="bg-body-white" style="margin-bottom:250px;">
+    <div class="container">
+        <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Open Price</th>
+            <th scope="col">Last Price</th>
+            <th scope="col">High Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{{ stock_info["name"] }}</th>
+            <td>{{ stock_info["open_price"] }}</td>
+            <td>{{ stock_info["last_price"] }}</td>
+            <td>{{ stock_info["high_price"] }}</td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+    </div>
+    {% include "footer.html" %}
+</body>
+</html>
